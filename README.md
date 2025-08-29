@@ -1,2 +1,3 @@
 # brightsites-sdk
-Bright Sites API SDK
+
+https://docs.mybrightsites.com/
