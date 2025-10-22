@@ -53,11 +53,12 @@ class BrightsitesServices:
         response.raise_for_status()
         return OrdersList.model_validate(response.json())
 
-    def list_products(self) -> ProductsList:
+    def list_products(self, page: int = 1) -> ProductsList:
         """List products."""
         response = self._make_request(
             method="GET",
             path="/products",
+            params={"page": page},
         )
         response.raise_for_status()
         return ProductsList.model_validate(response.json())

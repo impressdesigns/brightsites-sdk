@@ -1,6 +1,6 @@
 [project]
 name = "idi-brightsites-sdk"
-version = "0.1.1"
+version = "0.2.0"
 description = "Brightsites SDK"
 authors = [
     { name = "Bradley Reynolds", email = "bradley.reynolds@impressdesigns.com" },
