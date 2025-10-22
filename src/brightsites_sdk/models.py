@@ -47,7 +47,7 @@ class ProductSubOption(_BaseModel):
 
     id: int
     name: str
-    sub_sku: str
+    sub_sku: str | None
     image_src: str | None
     price_modifier: str
     position: int
@@ -158,7 +158,7 @@ class Product(_BaseModel):
     meta_description: str | None
     meta_keywords: str | None
     custom_url: str | None
-    description: str
+    description: str | None
     active: bool
     featured: bool
     tax_exempt: bool
@@ -175,7 +175,7 @@ class Product(_BaseModel):
     enable_inventory: bool
     enable_logo_locations: bool
     enable_product_options: bool
-    primary_category_id: int
+    primary_category_id: int | None
     vendor_inventory_enabled: bool
     inventory_vendor_id: int | None
     tax_code: str | None
