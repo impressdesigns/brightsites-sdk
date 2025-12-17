@@ -15,6 +15,6 @@ repos:
         exclude: .devcontainer/devcontainer-lock.json
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 5962e71b72bb9ab6bcf2bd5abc2cad494f1399fc  # frozen: 0.8.14
+    rev: e90530d2cface051bb46cbd33f2362558e5ee9fb  # frozen: 0.9.18
     hooks:
       - id: uv-lock
