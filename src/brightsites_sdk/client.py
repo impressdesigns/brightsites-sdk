@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from httpx import Client, Response
+import niquests
 
 from .models import OrdersList, Product, ProductOptionsList, ProductsList, ProductSubOptionsList
 
@@ -17,11 +17,11 @@ class BrightsitesServices:
         timeout: float = 10.0,
     ) -> None:
         """Initialize the BrightsitesServices class."""
-        self.client = Client(
+        self.session = niquests.Session(
             base_url=base_url,
-            params={"token": token},
             timeout=timeout,
         )
+        self.session.params = {"token": token}
 
     def _make_request(
         self,
@@ -29,9 +29,9 @@ class BrightsitesServices:
         path: str,
         params: dict[str, Any] | None = None,
         json: dict[str, Any] | None = None,
-    ) -> Response:
+    ) -> niquests.Response:
         """Make a request to Brightsites."""
-        args: dict[str, str | dict[str, str]] = {
+        args: dict[str, Any] = {
             "url": path,
             "method": method,
         }
@@ -42,7 +42,7 @@ class BrightsitesServices:
         if json is not None:
             args["json"] = json
 
-        return self.client.request(**args)  # type: ignore[arg-type]
+        return self.session.request(**args)
 
     def list_orders(self) -> OrdersList:
         """List orders."""
